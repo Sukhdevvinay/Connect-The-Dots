@@ -92,9 +92,11 @@ function fill_color() {
                     if (divElement && clr) {
                         if (x % 2 == 0) {
                             divElement.style.backgroundColor = "orange";
+                            x--;
                             orange++;
                         } else {
                             divElement.style.backgroundColor = "blue";
+                            x--;
                             blue++;
                         }
                         divElement.setAttribute("Color", "true");
