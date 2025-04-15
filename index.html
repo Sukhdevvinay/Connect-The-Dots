@@ -4,14 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dots and Boxes</title>
-   <link rel="stylesheet" href="game.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #bbf459, #1ad3e0);
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        select, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            select option[value="9"], select option[value="10"] {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <a href=""></a>
-    <label for="size">Enter grid size (n):</label>
-    <input type="number" id="size" min="2" max="10" value="4">
-    <button onclick="generateGrid()">Generate Grid</button>
-    <div id="grid"></div>
-    <script src="game.js"></script>
+    <div class="container">
+        <h1>Dots and Boxes</h1>
+        <label for="size">Select Grid Size:</label>
+        <select id="size">
+            <option value="3">3x3</option>
+            <option value="4">4×4</option>
+            <option value="5">5×5</option>
+            <option value="6">6×6</option>
+            <option value="7">7×7</option>
+            <option value="8">8×8</option>
+            <option value="9">9×9</option>
+            <option value="10">10×10</option>
+        </select>
+        <br>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+    <script>
+        let a = document.getElementById("size").value;
+        function startGame() {
+            let gridSize = document.getElementById('size').value;
+            localStorage.setItem('size', gridSize);
+            window.location.href = 'game.html?grid=' + gridSize;
+        }
+    </script>
 </body>
 </html>
